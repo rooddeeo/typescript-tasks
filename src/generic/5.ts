@@ -3,9 +3,13 @@
   Використовуйте generics, щоб цей інтерфейс міг працювати з будь-якими типами ключів та значень.
 */
 
-interface KeyValuePair {
-  key;
-  value;
+type MixedType = {
+  [key: string]: any;
+};
+
+interface KeyValuePair<K extends keyof MixedType, U> {
+  key: K;
+  value: U;
 }
 
 export {};
